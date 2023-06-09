@@ -1,0 +1,12 @@
+@use 'About';
+@use 'Specs';
+
+.product_info {
+  max-width: 71.5rem;
+  margin-inline: 1rem;
+
+  @media (width >= 768px) {
+    margin-inline: auto;
+    width: 96%;
+  }
+}

@@ -1,0 +1,17 @@
+@use '../../variables' as *;
+@use 'navPrimary';
+@use 'navSecondary';
+
+.navigation-desktop {
+  display: flex;
+  flex-direction: column;
+  background: $light;
+  font-size: 14px;
+
+  .navigation_primary,
+  .navigation_secondary {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $backgroundGray;
+  }
+}

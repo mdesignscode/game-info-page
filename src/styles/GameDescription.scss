@@ -1,0 +1,91 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.game_description {
+  position: relative;
+  width: 100%;
+  padding-block: 2rem;
+  scroll-margin-top: 120px;
+  margin-top: 2rem;
+  max-width: 71.5rem;
+  margin-inline: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+
+  @media (width >=768px) {
+    margin-top: 4rem;
+    padding-block: 3rem;
+    width: 96%;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__text {
+
+    h2 {
+      @include boldFont(1.125rem);
+      margin-bottom: 1rem;
+
+      @media (width >=429px) {
+        font-size: 1.3125rem;
+      }
+    }
+
+    p:nth-of-type(1) {
+      margin-bottom: 1rem;
+    }
+
+    &ShowMore {
+      @include noBorder;
+      @include boldFont(100%);
+      margin-block: 0.5rem;
+      padding: 0.5rem;
+      padding-left: 0.5rem;
+      color: $primaryRed;
+      border-width: 0.25rem;
+      line-height: 0.714286;
+      transition: color 200ms ease-in-out 25ms, border-color 200ms ease-in-out 25ms;
+
+      span {
+        @include flexBox(0, true);
+
+        svg {
+          width: 1.125rem;
+          margin-right: 10px;
+        }
+      }
+
+      &:hover {
+        color: $hoverRed;
+      }
+    }
+
+    &Provider {
+      font-size: 0.625rem;
+
+      @media (width >=429px) {
+        font-size: 0.75rem;
+      }
+    }
+
+    .cta_button {
+      @include ctaButton;
+      @include boldFont(1rem);
+      text-align: center;
+      height: 3rem;
+      margin-top: 1rem;
+      transition: all 300ms ease-in-out 0s;
+      white-space: nowrap;
+      padding: 0px 1.5rem;
+
+      @media (width >=429px) {
+        font-size: 1.125rem;
+        padding: 0px 1.5rem;
+        width: auto;
+      }
+    }
+  }
+}

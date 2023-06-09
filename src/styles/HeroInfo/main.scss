@@ -1,0 +1,46 @@
+@use '../variables' as *;
+@use './ImageGallery';
+@use './HeroInfo';
+
+.hero_container {
+  background: $backgroundBlue;
+
+  nav {
+    font-size: 12px;
+
+    :not(.is-active) {
+      color: #727272;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    background: $light;
+    max-width: 1240px;
+    margin: 0px auto;
+    transform: translateY(2em);
+    border-radius: 0.25rem;
+    box-shadow: rgba(60, 64, 89, 0.15) 0px 4px 16px 0px;
+    padding: 2rem 3rem;
+    column-gap: 3rem;
+
+    &Container {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3rem;
+
+      @media (width <=768px) {
+        grid-template-rows: 3fr 2fr;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (width <=1240px) {
+      transform: translateY(0px);
+      border-radius: 0px;
+    }
+  }
+
+
+}

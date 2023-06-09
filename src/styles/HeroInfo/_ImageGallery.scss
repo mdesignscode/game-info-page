@@ -1,0 +1,8 @@
+@use 'styles/mixins' as *;
+@use './ImageLightbox';
+
+.hero_container__sectionContainerGallery {
+  @include flexBox(1rem);
+  flex-direction: column;
+  overflow-x: hidden;
+}

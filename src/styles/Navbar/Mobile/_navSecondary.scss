@@ -1,0 +1,42 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.navigation-mobile {
+  .navigation_secondary {
+    @include boxSize(440px, 58px);
+    @include flexBox($align: true, $justify: space-between);
+    position: absolute;
+    z-index: 2;
+    bottom: 1rem;
+    padding-inline: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0.25rem 0.5rem 0px;
+
+    &-item {
+      @include boxSize(calc((100% - 60px) / 4), 100%);
+      @include flexBox($align: true, $justify: center);
+    }
+
+    button {
+      @include noBorder;
+      color: $dark;
+    }
+
+    a:hover {
+      color: $dark;
+    }
+
+    #search-icon {
+      @include boxSize(60px);
+      color: $light;
+      background: $primaryRed;
+      border-radius: 50%;
+      margin-top: -1rem;
+
+      svg {
+        @include boxSize(32px);
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@use 'GameCard';
+@use 'styles/mixins' as *;
+@use 'styles/variables' as *;
+
+.more_games {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  max-width: 71.5rem;
+  margin: 5rem auto;
+
+  @media (width <= 1200px) {
+    margin: 0rem auto 4rem;
+    width: 96%;
+  }
+
+  h1 {
+    @include boldFont(1.75rem)
+  }
+
+  .more_games__cards {
+    @include flexBox($align: true);
+    position: relative;
+    margin-top: 3rem;
+
+    &Slide {
+      @include flexBox(2rem);
+      margin-left: 2rem;
+      overflow: hidden;
+      scroll-behavior: smooth;
+
+      @media (width < 769px) {
+        margin-left: 1rem;
+
+        .more_games__cardTextDetails {
+          margin-bottom: 3rem;
+        }
+      }
+    }
+
+    button {
+      @include slideButton(1rem, 115%, 200ms);
+      @include noBorder(rgba(0, 0, 0, 0.3));
+      @include scaleArrow;
+
+      svg {
+        color: $backgroundGray;
+      }
+
+      @media (width < 769px) {
+        padding-inline: 1.25rem;
+      }
+
+      &.next {
+        border-radius: 0.25rem 0 0 0.25rem;
+        right: 0;
+      }
+
+      &.previous {
+        border-radius: 0 0.25rem 0.25rem 0;
+        left: 0;
+      }
+    }
+  }
+}

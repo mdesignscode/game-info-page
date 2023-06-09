@@ -1,0 +1,27 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.esrb {
+  @include flexBox(0.75rem, true);
+  min-height: 5.25rem;
+
+  svg {
+    .cls-1 {
+      fill: $light;
+    }
+  }
+
+  &_descriptors {
+    @include flexBox($justify: space-between);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    flex-direction: column;
+    max-width: 352px;
+
+    span {
+      padding: 0px 0px 0.25em;
+      border-bottom: 1px solid rgb(72, 72, 72);
+      margin-bottom: 4px;
+    }
+  }
+}

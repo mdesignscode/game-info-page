@@ -1,0 +1,13 @@
+@use 'navPrimary';
+@use 'navSecondary';
+
+.navigation-mobile {
+  display: flex;
+  justify-content: center;
+
+  .navigation_primary,
+  .navigation_secondary {
+    display: flex;
+    align-items: center;
+  }
+}

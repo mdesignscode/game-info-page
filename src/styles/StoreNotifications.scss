@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+.store_notifications {
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
+
+  @media (width < 1025px) {
+    margin-top: 2.75rem;
+  }
+
+  .store_notificationsNotification {
+    display: flex;
+    align-items: center;
+    padding-inline: 1.25rem;
+
+    svg {
+      margin-right: 0.75rem;
+      color: $primaryRed;
+    }
+
+    strong {
+      font-family: $fontBold;
+      margin-right: 5px;
+      color: $dark;
+    }
+
+    &:nth-of-type(2) {
+      border-left: 1px solid #969696;
+
+      strong {
+        text-decoration: underline;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}

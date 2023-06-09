@@ -1,0 +1,49 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.product_info__specs {
+  margin-top: 2rem;
+
+  &Spec {
+    display: grid;
+    grid-template-columns: 28px 1fr 2fr;
+    padding-block: 1rem;
+    border-top: 1px solid $backgroundGray;
+    gap: 0px 1.25rem;
+    align-items: start;
+
+    &:last-child {
+      border-bottom: 1px solid $backgroundGray;
+    }
+
+    @media (width < 769px) {
+      grid-template-columns: 28px 1fr;
+      padding: 1rem 0.5rem;
+
+      p,
+      div {
+        grid-column: 2 / -1;
+        margin-left: 10px
+      }
+    }
+
+    h3 {
+      @include boldFont(18px);
+      margin-left: 10px;
+    }
+
+    svg {
+      margin-left: 10px;
+    }
+
+    div {
+      @include flexBox(1rem);
+
+      span {
+        @include boldFont;
+        @include setLink;
+      }
+    }
+
+  }
+}

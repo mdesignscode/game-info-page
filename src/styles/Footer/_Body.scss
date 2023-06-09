@@ -1,0 +1,80 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.footer_body {
+  background: $light;
+  padding: 2rem 1rem 10rem;
+  max-width: 90rem;
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 15.625rem;
+  margin: 1rem auto;
+  row-gap: 2rem;
+  justify-content: center;
+  position: relative;
+
+  &__link {
+    border-right: 1px solid $backgroundGray;
+    padding-left: 1.5rem;
+
+    &:first-child {
+      border-left: 1px solid $backgroundGray;
+    }
+
+    h2 {
+      @include boldFont(1.125rem);
+    }
+
+    &Items {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        @include setLink;
+        @include boldFont(1rem);
+        border-bottom-color: transparent;
+        width: max-content;
+        transition: border-bottom-color 200ms ease-in-out 25ms, color 200ms ease-in-out 25ms;
+      }
+    }
+  }
+
+  .esrb_certified {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    max-width: 4rem;
+    width: 100%;
+    margin-block: 1rem;
+
+    @media (width < 1016px) {
+      right: 50%;
+    }
+
+    .cls-1 {
+      fill: #fff
+    }
+
+    .cls-2 {
+      fill: #231f20
+    }
+
+    .cls-3 {
+      fill: #085ea9
+    }
+  }
+
+  @media (width > 428px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+
+  @media (width > 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (width > 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

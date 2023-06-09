@@ -1,0 +1,9 @@
+@use 'styles/mixins' as *;
+@use 'Body';
+@use 'Head';
+@use 'Tail';
+
+footer {
+  display: flex;
+  flex-direction: column;
+}

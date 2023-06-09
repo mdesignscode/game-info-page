@@ -1,0 +1,34 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.navigation-desktop {
+  .navigation_secondary {
+    height: 44px;
+    justify-content: center;
+    gap: 2rem;
+
+    &__link {
+      @include flexBox($align: true);
+      height: 100%;
+
+      &:first-child {
+        border-bottom: 4px solid $primaryRed;
+
+        svg {
+          color: $primaryRed;
+        }
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include flexBox($align: center, $justify: center);
+
+        svg {
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+}

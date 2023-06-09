@@ -1,0 +1,65 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.online_membership {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 96%;
+  margin-inline: auto;
+  max-width: 71.5rem;
+  background: #f8f8f8;
+  border-radius: 4px;
+  align-items: center;
+  padding: 0 2rem;
+  margin-top: 7rem;
+
+  @media (width < 769px) {
+    grid-template-columns: 1fr;
+    border-radius: 0px;
+  }
+
+  &__hero {
+    @include flexBox(2rem);
+    @include boldFont;
+    flex-direction: column;
+    margin-top: 2.25rem;
+    margin-bottom: 1.75rem;
+
+    &Text {
+      font-size: 1.325rem;
+    }
+
+    &Features {
+      @include flexBox($align: true);
+      flex-wrap: wrap;
+
+      span {
+        @include setLink;
+
+        &:nth-of-type(1) {
+          margin-left: 10px;
+        }
+
+        &:nth-of-type(2) {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .cta_button {
+      @include ctaButton;
+      @include boxSize(144px, 48px);
+    }
+
+    &Image {
+      height: 100%;
+      display: flex;
+      align-items: end;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.navigation-mobile {
+  .navigation_primary {
+    @include boxSize(100%, 2.75rem);
+    justify-content: space-between;
+    background: $primaryRed;
+    padding-inline: 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    #home svg {
+      width: 84px;
+    }
+
+    a {
+      display: grid;
+    }
+
+    &.showSearchField {
+      background: $light;
+      gap: 15px;
+
+      .navigation_primarySearch-input {
+        @include noBorder;
+        cursor: pointer;
+        flex: 1;
+        display: flex;
+        align-items: end;
+        height: 100%;
+        border-bottom: 1px solid $primaryRed;
+        margin-bottom: 1rem;
+        padding-bottom: 4px;
+
+        input {
+          flex: 1;
+          border-style: none;
+          background: transparent;
+          font-size: 16px;
+
+          ::placeholder {
+            opacity: 0.8;
+          }
+
+          &:focus {
+            outline: none;
+            border-style: none;
+          }
+        }
+
+        svg {
+          margin-right: 10px;
+          margin-bottom: 3px;
+          color: $primaryRed;
+        }
+      }
+
+      span {
+        svg {
+          color: $dark;
+        }
+      }
+    }
+  }
+}

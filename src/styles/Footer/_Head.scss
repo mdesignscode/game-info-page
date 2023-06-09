@@ -1,0 +1,37 @@
+@use 'styles/mixins' as *;
+@use 'styles/variables' as *;
+
+.footer_head {
+  @include flexBox(0, true, space-between);
+  width: 100%;
+  background: $primaryRed;
+  padding: 2.25rem 1rem;
+
+  @media (width < 768px) {
+    flex-direction: column;
+    gap: 2rem;
+
+    &Left {
+      gap: 2rem;
+    }
+  }
+
+  &Left {
+    display: grid;
+    place-items: center;
+
+    svg {
+      width: 195px;
+      cursor: pointer;
+    }
+  }
+
+  &Right {
+    @include flexBox(calc(2rem), true, space-between);
+    color: $light;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}

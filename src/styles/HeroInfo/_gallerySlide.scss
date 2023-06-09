@@ -1,0 +1,76 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// image thumbnails container
+.image_lightBoxSlide {
+  position: relative;
+
+  &Thumbnails {
+    @include flexBox(1.25rem, true);
+    overflow-x: hidden;
+    border-radius: 4px;
+    scroll-behavior: smooth;
+  } 
+
+  button {
+    @include slideButton(0.75rem, 100%, 300ms);
+    @include noBorder(rgba(0, 0, 0, 0.25), 0.25rem);
+    @include scaleArrow;
+
+    svg {
+      @include boxSize(24px);
+    }
+
+    &.previous {
+      left: 0;
+    }
+
+    &.next {
+      right: 0;
+    }
+  }
+
+  span {
+    @include flexBox($align: true);
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    transition: height 300ms ease-out;
+
+    &:hover::after,
+    &.active::after {
+      content: '';
+      height: 6px;
+      width: 100%;
+      background: $primaryRed;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-radius: 0 0 4px 4px;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+
+    &:not(.active) {
+      opacity: 0.8;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.trailer {
+      position: relative;
+
+      svg {
+        @include absoluteCenter
+      }
+    }
+
+    @media (width <=768px) {
+      width: 20%;
+    }
+  }
+}

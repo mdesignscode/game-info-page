@@ -1,0 +1,49 @@
+@use '../variables' as *;
+
+.searchResultsField {
+  position: absolute;
+  z-index: 9;
+  background-color: $light;
+  width: 100vw;
+  font-family: $fontBold;
+  line-height: 22.4px;
+  top: 52px;
+  min-height: 17.5rem;
+  padding: 1.75rem 7.5625rem 3.5rem;
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .searchResultsField_suggestionsTopics {
+    display: flex;
+    flex-direction: column;
+    color: $primaryRed;
+    gap: 0.5rem;
+
+    span {
+      cursor: pointer;
+      width: max-content;
+
+      &:hover {
+        color: $primaryRed;
+      }
+    }
+  }
+
+  @media (width < 1025px) {
+    height: 100vh;
+    top: 44px;
+    left: 0;
+    padding: 1.75rem 2.35rem;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .searchResultsField_suggestionsTopics span {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

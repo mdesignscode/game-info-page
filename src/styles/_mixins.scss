@@ -1,0 +1,141 @@
+@use 'variables' as *;
+
+@mixin flexBox($gap: false, $align: false, $justify: false) {
+  display: flex;
+
+  @if $gap {
+    gap: $gap;
+  }
+
+  @if $align {
+    align-items: center;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+}
+
+@mixin boxSize($width, $height: false) {
+  width: $width;
+
+  @if $height {
+    height: $height;
+  }
+
+  @else {
+    height: $width;
+  }
+}
+
+@mixin noBorder($background: transparent, $radius: 0) {
+  border: none;
+  background: $background;
+  border-radius: $radius;
+}
+
+@mixin boldFont($font-size: false) {
+  font-family: $fontBold;
+
+  @if $font-size {
+    font-size: $font-size;
+  }
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin setLink {
+  color: $primaryRed;
+  border-bottom: 2px solid $primaryRed;
+  cursor: pointer;
+
+  &:hover {
+    color: #bd0510;
+    border-bottom: 2px solid #bd0510;
+  }
+}
+
+@mixin heartAnimation {
+  svg {
+    @include boxSize(48px);
+    color: $primaryRed;
+    cursor: pointer;
+
+    &:hover {
+      .sparks {
+        display: block;
+
+      }
+    }
+
+    .hearts {
+      .heart-filled {
+        display: none;
+      }
+    }
+
+    .sparks {
+      display: none;
+    }
+  }
+}
+
+@mixin slideButton($padding, $height, $duration) {
+  height: $height;
+  padding-inline: $padding;
+  transition: all $duration ease-out 25ms;
+  position: absolute;
+  z-index: 1;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &:disabled {
+    opacity: 0;
+  }
+}
+
+@mixin ctaButton($fontSize: 18px, $borderRadius: 4px) {
+  @include noBorder($primaryRed, $borderRadius);
+  @include boldFont($fontSize);
+  position: relative;
+  color: $light;
+  transition: background 0.2s ease-out;
+
+  &:hover {
+    background: $hoverRed;
+  }
+}
+
+@mixin scaleArrow {
+  svg {
+    transition: scale 0.3s ease-out;
+  }
+
+  &:hover svg {
+    scale: 1.2;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,39 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+@use './leftNavigation';
+
+.navigation-desktop {
+  .navigation_primary {
+    height: 52px;
+    justify-content: space-between;
+
+    // display search field
+    &.showSearchField {
+      border: none;
+
+      .close-button {
+        svg {
+          color: $backgroundGray;
+        }
+      }
+
+      .navigation_primary__links {
+        display: none;
+      }
+    }
+
+    // right navigation
+    &__links {
+      @include flexBox(1.75rem, true);
+      padding: 0px 1.25rem;
+
+      &Link a {
+        @include flexBox($align: true, $justify: center);
+
+        svg {
+          margin-right: 0.375rem;
+        }
+      }
+    }
+  }
+}

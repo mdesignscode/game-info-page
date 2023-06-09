@@ -1,0 +1,63 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.navigation_secondary__menu {
+  @include boxSize(440px, 60vh);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 2rem;
+  z-index: 1;
+  background: $lightGray;
+  border-radius: 1rem;
+  padding-bottom: 3rem;
+
+  &Header {
+    @include boldFont;
+    @include flexBox($align: true, $justify: center);
+    position: relative;
+    height: 4rem;
+    background: $light;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: 1px solid $backgroundGray;
+    padding: 2rem;
+
+    .close-button {
+      position: absolute;
+      right: 1rem;
+      color: $backgroundGray;
+    }
+  }
+
+  &Body {
+    flex: 1;
+    overflow-y: scroll;
+
+    nav,
+    .navigation_secondary__menuFooter {
+      margin-bottom: 1rem;
+
+      .navigation_secondary__menuLink {
+        @include boxSize(100%, 60px);
+        @include flexBox($align: true);
+        background: $light;
+        border-bottom: 1px solid $backgroundGray;
+        padding-inline: 1.5rem;
+
+        a {
+          @include flexBox(0.6rem, true);
+          width: 100%;
+
+          &:hover {
+            color: $dark;
+          }
+
+          svg {
+            color: $primaryRed;
+          }
+        }
+      }
+    }
+  }
+}

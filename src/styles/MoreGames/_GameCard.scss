@@ -1,0 +1,58 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.more_games__card {
+  @include heartAnimation;
+  flex-shrink: 0;
+  border: 1px solid $backgroundGray;
+  position: relative;
+  margin-top: 0px;
+  border-radius: 0.25rem;
+  max-width: 16rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover {
+    .more_games__cardHero {
+      transform: translateY(-1rem);
+    }
+
+    .more_games__cardTextDetails h2 {
+      color: $primaryRed;
+    }
+  }
+
+  &Text {
+    padding-left: 1rem;
+    padding-top: 0.5em;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &Details {
+      flex: 1;
+      margin-bottom: 2rem;
+
+      h2 {
+        @include boldFont
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    &Price {
+      @include boldFont;
+    }
+  }
+
+  svg {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+}

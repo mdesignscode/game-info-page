@@ -1,0 +1,42 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.hero_container__sectionContainerInfo {
+  @include flexBox(1.5rem);
+  flex-direction: column;
+  font-size: 12px;
+
+  &Platform {
+    border-left: 2px solid $primaryRed;
+    font-size: 14px;
+    padding-left: 0.5rem;
+  }
+
+  &Title,
+  &Price {
+    @include boldFont(28px);
+  }
+
+  &Price {
+    @include flexBox($align: true, $justify: space-between);
+
+    @include heartAnimation;
+  }
+
+  &GoldenPoints {
+    @include flexBox(10px, true);
+
+    strong {
+      @include boldFont;
+    }
+  }
+
+  .cta_button {
+    @include ctaButton(21px);
+    @include flexBox(1rem, true, center);
+    padding-block: 1.25rem;
+    margin-bottom: -0.5rem;
+    align-self: center;
+    width: 100%;
+  }
+}
