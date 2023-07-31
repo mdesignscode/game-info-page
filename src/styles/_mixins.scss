@@ -69,7 +69,9 @@
     &:hover {
       .sparks {
         display: block;
-
+      }
+      .hearts .heart-filled {
+        display: block;
       }
     }
 
@@ -81,6 +83,7 @@
 
     .sparks {
       display: none;
+    transition: display ease-in-out 3s;
     }
   }
 }
